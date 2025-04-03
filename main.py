@@ -37,7 +37,12 @@ def main():
     a, b = coords
     coords = b, a
 
-    with open("coffee.json", "r") as my_file:
+    with open("coffee.json", "rb") as my_file:
+        raw_data = my_file.read()
+        result = chardet.detect(raw_data)
+        encoding = result['encoding']
+   
+    with open("coffee.json", "r", encoding=encoding) as my_file:
       file_contents = my_file.read()
 
     cafe = json.loads(file_contents)
