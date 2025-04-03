@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import folium
 import requests
 from geopy import distance
+import chardet
 
 
 def fetch_coordinates(apikey, address):
